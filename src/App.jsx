@@ -29,12 +29,12 @@ class App extends Component {
     return (
       <div>
         <h1>API</h1>
-        {this.state.dataApi.map((dat, index) => {
+        {this.state.dataApi.map(cont => {
           return(
-            <div key={index}>
-              <p>{dat.firstName}</p>
-              <p>{dat.lastName}</p>
-              <p>{dat.age}</p>
+            <div key={cont.id}>
+              <p>{cont.firstName}</p>
+              <p>{cont.lastName}</p>
+              <p>{cont.age}</p>
               <hr />
             </div>
           )}
