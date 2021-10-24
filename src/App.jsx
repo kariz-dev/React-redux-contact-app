@@ -32,9 +32,9 @@ class App extends Component {
         {this.state.dataApi.map(cont => {
           return(
             <div key={cont.id}>
-              <p>{cont.firstName}</p>
-              <p>{cont.lastName}</p>
-              <p>{cont.age}</p>
+              <img style={{borderRadius: '100%', height: '150px', width: '150px', objectFit: 'cover'}} src={cont.photo} alt={cont.firstName} />
+              <p>Name : {cont.firstName+' '+cont.lastName}</p>
+              <p>Age : {cont.age}</p>
               <hr />
             </div>
           )}
