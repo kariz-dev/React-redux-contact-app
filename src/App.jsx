@@ -1,45 +1,33 @@
-import axios from 'axios';
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import { Home } from './pages/Home';
+import { Edit } from './pages/Edit';
+import { Add } from './pages/Add';
+import { Nav } from './components/Nav';
 
-const api = 'https://simple-contact-crud.herokuapp.com';
+
 
 class App extends Component {
-
-  constructor(props){
-    super(props);
-    this.state={
-      dataApi:[],
-      response: ''
-    }
-  }
-
-  componentDidMount(){
-    
-      // Axios
-      axios.get(api+'/contact')
-        .then(res => {
-          this.setState({
-            dataApi:res.data.data
-          })
-        }
-      )
-  }
-
   render() {
     return (
-      <div>
-        <h1>API</h1>
-        {this.state.dataApi.map(cont => {
-          return(
-            <div key={cont.id}>
-              <img style={{borderRadius: '100%', height: '150px', width: '150px', objectFit: 'cover'}} src={cont.photo} alt={cont.firstName} />
-              <p>Name : {cont.firstName+' '+cont.lastName}</p>
-              <p>Age : {cont.age}</p>
-              <hr />
-            </div>
-          )}
-        )}
-      </div>
+      <Router>
+        <Nav />
+        <Switch>
+        <Route path="/add">
+            <Add />
+          </Route>
+          <Route path="/edit">
+            <Edit />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
     )
   }
 }
