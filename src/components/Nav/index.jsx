@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { Button } from 'reactstrap'
 
 export class Nav extends Component {
     render() {
@@ -15,6 +16,9 @@ export class Nav extends Component {
                     <li>
                         <Link to="/add">add</Link>
                     </li>
+                    <Button color="danger">
+                        Click Me
+                    </Button>
                 </ul>
             </div>
         )
